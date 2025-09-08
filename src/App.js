@@ -10,24 +10,25 @@ import Mypage from './pages/Mypage';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import InfoRegistration from './pages/InfoRegistration';
 
 function App() {
-   return (
-     <div className='app'>
-       <Header />
-       <Nav />
-       <Routes>
-         {/* 기본 경로(/)로 접근 시 /Home으로 리다이렉트하는 Route */}
+  return (
+    <div className='app'>
+      <Header />
+      <Nav />
+      <Routes>
         <Route path="/" element={<Navigate to="/Home" replace />} />
-         <Route path="/Home" element={<Home />} />
-         <Route path="/myrefrig" element={<Myrefrig />}/>
-         <Route path="/recom" element={<Recom />}/>
-         <Route path="/mypage" element={<Mypage />}/>
-         <Route path="/Register" element={<Register />}/>
-         <Route path="/Login" element={<Login />}/>
-       </Routes>
-     </div>
-   );
- }
+        <Route path="/Home" element={<Home />} />
+        <Route path="/myrefrig" element={<Myrefrig />} />
+        <Route path="/recom" element={<Recom />} />
+        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/InfoRegistration" element={<InfoRegistration />} />
+      </Routes>
+    </div>
+  );
+}
 
 export default App;
