@@ -15,17 +15,17 @@
 
 .form-section {
   width: 100%;
-  max-width: 1400px;
+  max-width: 2600px;
   background-color: #FFF2DB;
-  padding: 40px 60px;
+  padding: 20px 40px;
   border-radius: 15px;
   margin-bottom: 30px;
 }
 
-.section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
+.section-title h1 {
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin-bottom: 50px;
   color: #333333;
 }
 
@@ -72,36 +72,41 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 15px;
+  margin-top: 3px;
 }
 
 .allergy-tag {
   display: flex;
   align-items: center;
+  justify-content: center; /* 수평 중앙 정렬 추가 */
   background-color: #FF7B52;
   color: white;
-  padding: 6px 12px;
+  padding: 4px 12px 8px 12px; /* 위 4px, 좌우 12px, 아래 8px로 아래쪽 여백 증가 */
   border-radius: 20px;
-  font-size: 0.9rem;
-  gap: 8px;
+  font-size: 1rem;
+  gap: 6px;
+  line-height: 1; /* 줄 간격을 1로 설정하여 수직 정렬 개선 */
+  min-height: 28px; /* 32px → 28px로 최소 높이 감소 */
 }
 
 .tag-remove-btn {
   background: none;
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.8rem; /* 크기를 약간 줄임 */
   padding: 0;
-  margin-left: 5px;
-  width: 16px;
-  height: 16px;
+  margin: 0;
+  width: 16px; /* 크기 줄임 */
+  height: 16px; /* 크기 줄임 */
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   transition: background-color 0.3s ease;
+  flex-shrink: 0;
 }
+
 
 .tag-remove-btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
@@ -153,7 +158,7 @@
 /* 제출 버튼 */
 .submit-btn {
   width: 100%;
-  max-width: 400px;
+  max-width: 2000px;
   padding: 15px;
   background-color: #FF7B52;
   color: white;

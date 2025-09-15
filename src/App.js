@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import InfoRegistration from './pages/InfoRegistration';
+import IngredientRegistration from './pages/IngredientRegistration';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/InfoRegistration" element={<InfoRegistration />} />
+        <Route path="/IngredientRegistration" element={<IngredientRegistration />} />
       </Routes>
     </div>
   );

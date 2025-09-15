@@ -1,5 +1,6 @@
 /* 비로그인 상태의 정보 등록 페이지 */
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './InfoRegistration.css';
 import Stage from '../components/Stage';
 
@@ -7,6 +8,8 @@ function InfoRegistration() {
   const [allergyInput, setAllergyInput] = useState('');
   const [allergyTags, setAllergyTags] = useState([]);
   const [selectedTools, setSelectedTools] = useState([]);
+
+  const navigate = useNavigate();
 
   const cookingTools = [
     '웍', '전자레인지', '큰 냄비', '뚝배기', 
@@ -34,10 +37,38 @@ function InfoRegistration() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log('알레르기:', allergyTags);
     console.log('선택된 조리도구:', selectedTools);
-    // 다음 단계로 이동하는 로직 추가
+    
+    try {
+      // 백엔드 API 호출 예시 (필요시 사용)
+      const token = localStorage.getItem('token');
+      const response = await fetch('http://localhost:3001/api/user-info', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          allergies: allergyTags,
+          cookingTools: selectedTools,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('정보 등록 성공:', data);
+        // 다음 단계(재료 등록 페이지)로 이동
+        navigate('/ingredient-registration');
+      } else {
+        console.error('정보 등록 실패:', response.status);
+        alert('정보 등록에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('API 호출 중 오류:', error);
+      alert('서버와 연결할 수 없습니다.');
+    }
   };
 
   return (
